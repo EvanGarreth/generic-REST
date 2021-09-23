@@ -3,12 +3,12 @@ import { Environment } from './models/environment.model';
 import { RestResourceConfig } from './models/rest-resource-config.model';
 import { EndpointDetails } from './models/endpoint-details';
 import { Injectable } from '@angular/core';
-import { RestModule } from '@societal/rest';
+//import { RestModule } from '@societal/rest';
 import { Endpoint } from './models/endpoint.model';
 
-@Injectable({
-  providedIn: RestModule
-})
+//@Injectable({
+//  providedIn: RestModule
+//})
 export class ResourceUrlService {
   private endpoints: Endpoint[] = [];
   private environmentEndpoints: Endpoint[] = [];

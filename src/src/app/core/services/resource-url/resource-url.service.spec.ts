@@ -7,7 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('ResourceUrlService', () => {
-  const endpointConfig: ResourceConfig = require('../../../../assets/mocks/config/resource-endpoints.json');
+  const endpointConfig: ResourceConfig = require('../../../../assets/config/resource-endpoints.json');
   const resources = JSON.stringify(endpointConfig);
   const BaseUri = 'http://localhost/api';
   let sut: ResourceUrlService;

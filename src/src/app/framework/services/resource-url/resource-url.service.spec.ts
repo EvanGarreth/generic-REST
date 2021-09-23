@@ -1,13 +1,13 @@
 import { environment } from '../../../../environments/environment';
 import { RestVerb } from '../../enums/http-verbs.enum';
-import { ResourceConfig } from './models/resource-config.model';
+import { RestResourceConfig } from './models/rest-resource-config.model';
 import { ResourceUrlService } from './resource-url.service';
 import { TestBed } from '@angular/core/testing';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('ResourceUrlService', () => {
-  const endpointConfig: ResourceConfig = require('../../../../assets/mocks/config/resource-endpoints.json');
+  const endpointConfig: RestResourceConfig = require('../../../../assets/config/resource-endpoints.json');
   const resources = JSON.stringify(endpointConfig);
   const BaseUri = 'http://localhost/api';
   let sut: ResourceUrlService;
@@ -16,8 +16,8 @@ describe('ResourceUrlService', () => {
       imports: [HttpClientModule, HttpClientTestingModule],
       providers: [ResourceUrlService],
     });
-    sut = TestBed.get(ResourceUrlService);
-    sut.config = resources;
+    sut = TestBed.inject(ResourceUrlService);
+    sut.load(resources);
   });
 
   describe('when retrieving a configuration URI for environment local-dev', () => {
